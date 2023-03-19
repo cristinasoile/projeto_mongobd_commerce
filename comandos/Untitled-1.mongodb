@@ -9,5 +9,42 @@ use('commerce');
 db.produtos.find({});
 
 // db.produtos.countDocuments({});
-db.produtos.find({},{"nome":1, "vendidos": 1, "_id":0}).sort({"vendidos":1});
-db.produtos.find({},{"nome":1, "vendidos": 1, "_id":0}).sort({"vendidos":-1}).limit(1);
+// db.produtos.find({},{"nome":1, "vendidos": 1, "_id":0}).sort({"vendidos":1});
+// db.produtos.find({},{"nome":1, "vendidos": 1, "_id":0}).sort({"vendidos":-1}).limit(1);
+// db.produtos.find({vendidos: {$gt: 50, $lt: 100}}, {_id: 0, nome: 1, vendidos: 1}).sort({vendidos: 1});
+//  db.produtos.find({curtidas: {$eq: 36}},{_id: 0, nome: 1, vendidos: 1, curtidas:1});
+// db.produtos.find({ $or: [{ curtidas: 36 }, { vendidos: 85 }] },
+//   { _id: 0, nome: 1, vendidos: 1, curtidas: 1 });
+// db.produtos.find({ $and: [{ curtidas: {$gt:10, $lt:100} }] },
+//   { _id: 0, nome: 1, curtidas: 1 });
+// db.produtos.find({ $and: 
+//   [  {vendidos: {$ne:50} }, { tags: {$exists:false}}] },
+//   { _id: 0, nome: 1, vendidos: 1 });
+// db.produtos.deleteMany({ curtidas: { $lt: 50 } });
+// db.produtos.find({}, {_id:0, nome:1});
+
+
+// --------- elemMatch
+  // db.produtos.find({
+  // valoresNutricionais: {
+  //   $elemMatch: {tipo: "calorias", quantidade: {$lt: 500}},
+  // }}, {_id: 0, nome: 1}
+  // );
+
+  //   db.produtos.find({
+  // valoresNutricionais: {
+  //   $elemMatch: {tipo: "proteínas", percentual: {$gte:30, $lte: 40}},
+  // }}, {_id: 0, nome: 1}
+  // );
+
+  //     db.produtos.find({nome: { $nin: [/Big Mac/i, /McChicken/i]} }, {_id: 0, nome: 1, curtidas: 1 , vendidos: 1}
+  // );
+
+//       db.produtos.updateMany({nome: {$ne: "McChicken"}}, {$addToSet: {ingredientes: "ketchup"}}
+//   );
+// db.produtos.find({}, {_id:0, nome: 1, ingredientes:1});
+
+//       db.produtos.updateMany({},{ $set: {criadoPor:"Ronald McDonald"}});
+// db.produtos.find({}, {_id:0, nome: 1, criadoPor:1});
+
+db.produtos.find( {ingredientes: "picles"}, {_id:0, nome: 1, ingredientes:1, valoresNutricionais:{$slice:3}});
