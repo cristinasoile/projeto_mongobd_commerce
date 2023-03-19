@@ -1,0 +1,2 @@
+
+db.produtos.find({"nome": "Big Mac",});

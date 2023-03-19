@@ -1,0 +1,13 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('commerce');
+
+db.produtos.find({});
+
+// db.produtos.countDocuments({});
+db.produtos.find({},{"nome":1, "vendidos": 1, "_id":0}).sort({"vendidos":1});
+db.produtos.find({},{"nome":1, "vendidos": 1, "_id":0}).sort({"vendidos":-1}).limit(1);
